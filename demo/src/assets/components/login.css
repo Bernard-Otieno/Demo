@@ -1,0 +1,91 @@
+/* Container that wraps the whole login form */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+.login-container input {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.login-container .button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.login-container button {
+  padding: 10px;
+  width: 48%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #3e77c7;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #458fa0;
+}
+
+.login-container p {
+  margin-top: 10px;
+  color: red;
+}
+
+  
+  /* Heading inside the form */
+  h2 {
+    text-align: center; /* Center the heading */
+  }
+  
+  /* Style the form itself */
+  form {
+    display: flex;
+    flex-direction: column; /* Stack form fields vertically */
+  }
+  
+  /* Labels for the input fields */
+  label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  /* Style the input boxes */
+  input {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  /* Style the submit button */
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #0077ff; /* Blue background */
+    color: white;              /* White text */
+    border: none;
+    cursor: pointer;           /* Pointer cursor on hover */
+  }
+  
+  /* Slightly darker button on hover */
+  button:hover {
+    background-color: #005fcc;
+  }
+  

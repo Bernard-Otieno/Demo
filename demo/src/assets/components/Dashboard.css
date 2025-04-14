@@ -1,0 +1,59 @@
+.dashboard-container {
+  padding: 40px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.loading-text,
+.no-orders {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.orders-table {
+  margin: 0 auto 20px;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.orders-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.orders-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.logout-button,
+.nav-button {
+  display: inline-block;
+  margin: 15px 10px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.logout-button:hover,
+.nav-button:hover {
+  background-color: #218838;
+}
