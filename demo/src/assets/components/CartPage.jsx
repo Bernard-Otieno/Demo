@@ -1,12 +1,48 @@
 import React from 'react';
 import { useCart } from '/Demo/demo/src/context/CartContext';
 import { Link } from 'react-router-dom';
+import { supabase } from '/Demo/demo/src/supabaseClient';
+
 import './CartPage.css';
 
 function CartPage() {
     const { cartItems, removeFromCart } = useCart();
   
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
+
+    const handleCheckout = async () => {
+      const {
+        data: { session },
+        error: sessionError
+      } = await supabase.auth.getSession();
+    
+      if (sessionError || !session) {
+        alert("You must be logged in to checkout.");
+        return;
+      }
+    
+      const user = session.user;
+    
+      const orders = cartItems.map((item) => ({
+        user_id: user.id,
+        product_name: item.name,
+        quantity: item.quantity || 1,
+        price: item.price,
+        status: "pending",
+      }));
+    
+      const { error } = await supabase.from("orders").insert(orders);
+    
+      if (error) {
+        console.error("Error inserting orders:", error);
+        alert("Failed to complete checkout. Please try again.");
+      } else {
+        alert("Order placed successfully!");
+        window.location.href = "/dashboard"; // or wherever you want
+      }
+    };
+    
+    
   
     return (
       <div className="cart-page">
@@ -59,8 +95,8 @@ function CartPage() {
             {/* Checkout Section */}
             <div className="checkout-section">
               <p className="total-price">Total: KES {total}</p>
-              <button className="checkout-btn">Proceed to Checkout</button>
-            </div>
+              <button className="checkout-btn" onClick={handleCheckout}>Proceed to Checkout</button>
+              </div>
           </div>
         )}
   
